@@ -1,7 +1,7 @@
 @import '../../style/variables.scss';
 
 .news-list-item {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .25);
     display: flex;
     flex-direction: column;
     max-width: 564px;
@@ -25,6 +25,12 @@
         margin-bottom: 20px;
     }
 
+    &__footer-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
     &__img {
         object-fit: cover;
         transition: .3s;
@@ -39,10 +45,40 @@
         line-height: 32px;
         margin-bottom: 7px;
         color: #000;
+        transition: .3s;
     }
 
     &__text {
         font-size: 14px;
         line-height: 20px;
+    }
+
+    &__date {
+        font-size: 14px;
+        line-height: 20px;
+        color: $secondary;
+    }
+
+    &__link {
+        color: $brandRed;
+        font-size: 14px;
+        line-height: 20px;
+        &::after {
+            content: "";
+            display: inline-block;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            margin-left: 6px;
+        }
+
+        &:hover {
+            color: $darkBrandRed;
+
+            &::after {
+                border-left: 5px solid $darkBrandRed;
+            }
+        }
     }
 }
