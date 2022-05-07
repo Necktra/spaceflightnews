@@ -5,3 +5,7 @@ export function getNewsList(state) {
 export const getNewsError = (state) => state.news.error;
 
 export const getNewsLoading = (state) => state.news.request;
+
+export const getCurrentNewsLike = id => store => {
+    return store.news.likedNews.includes(id)
+}

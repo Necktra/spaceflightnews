@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteNews } from '../../store/news/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteNews, likeNews } from '../../store/news/actions';
+import { getCurrentNewsLike } from '../../store/news/selector';
 import IconButton from '../ui/icon-button/icon-button';
 import Delete from '../ui/icons/delete';
 import Like from '../ui/icons/like';
@@ -9,8 +10,15 @@ import './news-list-item.scss';
 const NewsListItem = ({ id, title, imageUrl, text, url, date }) => {
 
     const dispatch = useDispatch();
+
+    const isLiked = useSelector(getCurrentNewsLike(id));
+
     const deleteCurrentNews = useCallback(() => {
         dispatch(deleteNews(id));
+    });
+
+    const likeCurrentNews = useCallback(() => {
+        dispatch(likeNews(id));
     });
 
     return (
@@ -20,8 +28,8 @@ const NewsListItem = ({ id, title, imageUrl, text, url, date }) => {
                 {/* <img src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" alt="News picture" className="news-list-item__img" max-width="564" height="376" /> */}
             </div>
 
-            <IconButton type='like'>
-                <Like />
+            <IconButton type='like' callback={likeCurrentNews}>
+                <Like filled={isLiked} />
             </IconButton >
 
             <IconButton type='delete' callback={deleteCurrentNews}>

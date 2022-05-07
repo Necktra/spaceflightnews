@@ -7,6 +7,7 @@ export const GET_NEWS_SUCCESS = "GISTS::GET_NEWS_SUCCESS";
 export const GET_NEWS_FAILURE = "GISTS::GET_NEWS_FAILURE";
 
 export const DELETE_NEWS = "GISTS::DELETE_NEWS";
+export const LIKE_NEWS = "GISTS::LIKE_NEWS";
 
 
 export const getNewsRequest = () => ({
@@ -22,6 +23,13 @@ export const getNewsSuccess = (data) => ({
 
 export const deleteNews = (id) => ({
     type: DELETE_NEWS,
+    payload: {
+        id
+    }
+});
+
+export const likeNews = (id) => ({
+    type: LIKE_NEWS,
     payload: {
         id
     }

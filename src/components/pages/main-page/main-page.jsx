@@ -12,6 +12,8 @@ const MainPage = () => {
     const singlesLoading = useSelector(getNewsLoading, shallowEqual);
     const singlesError = useSelector(getNewsError, shallowEqual);
 
+
+
     const [offset, setOffset] = useState(0);
 
     const getNews = useCallback(() => {
