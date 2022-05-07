@@ -14,6 +14,7 @@ const initialState = {
   likedNews: [],
   request: FETCH_STATUSES.IDLE,
   error: null,
+  // filter: false,
 };
 
 function news(state = initialState, action) {
