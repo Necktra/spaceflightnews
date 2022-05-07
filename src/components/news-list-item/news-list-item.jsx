@@ -1,3 +1,7 @@
+
+import IconButton from '../ui/icon-button/icon-button';
+import Delete from '../ui/icons/delete';
+import Like from '../ui/icons/like';
 import './news-list-item.scss';
 
 const NewsListItem = ({ title, imageUrl, text, url, date }) => {
@@ -8,13 +12,21 @@ const NewsListItem = ({ title, imageUrl, text, url, date }) => {
                 <img src={imageUrl} alt={title} className="news-list-item__img" max-width="564" height="376" />
                 {/* <img src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" alt="News picture" className="news-list-item__img" max-width="564" height="376" /> */}
             </div>
+            <IconButton type='like'>
+                <Like />
+            </IconButton >
+
+            <IconButton type='delete'>
+                <Delete />
+            </IconButton >
+
             <header>
                 <h4 className="news-list-item__title">{title}</h4>
             </header>
             <p className="news-list-item__text">{text}</p>
             <div className="news-list-item__footer-wrapper">
                 <span className="news-list-item__date">{date}</span>
-                <a className="news-list-item__link" target="_blank" href={url}>Read more</a>
+                <a className="news-list-item__link" target="_blank" href={url}>Read in source</a>
             </div>
         </section>
     )

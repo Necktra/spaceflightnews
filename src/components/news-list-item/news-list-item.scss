@@ -23,6 +23,7 @@
         max-height: 376px;
         overflow: hidden;
         margin-bottom: 20px;
+        position: relative;
     }
 
     &__footer-wrapper {
@@ -46,11 +47,27 @@
         margin-bottom: 7px;
         color: #000;
         transition: .3s;
+        height: 64px;
+        padding-right: 15px;
+
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     &__text {
         font-size: 14px;
         line-height: 20px;
+
+        height: 100px;
+        text-align: justify;
+        padding-right: 15px;
+
+        -webkit-line-clamp: 5;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     &__date {
@@ -63,6 +80,7 @@
         color: $brandRed;
         font-size: 14px;
         line-height: 20px;
+
         &::after {
             content: "";
             display: inline-block;
