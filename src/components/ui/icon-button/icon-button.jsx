@@ -1,6 +1,7 @@
 import './icon-button.scss';
 
-const IconButton = ({ children, type }) => {
+const IconButton = ({ children, type, callback }) => {
+
   let style = '';
   if (type === 'delete') {
     style = ' icon-button_delete';
@@ -9,7 +10,7 @@ const IconButton = ({ children, type }) => {
   }
 
   return (
-    <button type="button" className={`icon-button${style}`}>
+    <button type="button" onClick={callback} className={`icon-button${style}`}>
       {children}
     </button>
   );

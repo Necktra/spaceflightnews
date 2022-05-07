@@ -6,10 +6,12 @@ import {
     GET_NEWS_FAILURE,
     GET_NEWS_REQUEST,
     GET_NEWS_SUCCESS,
+    DELETE_NEWS,
   } from './actions';
   
   const initialState = {
     news: [],
+    likedNews: [],
     request: FETCH_STATUSES.IDLE,
     error: null,
   };
@@ -31,6 +33,10 @@ import {
           ...state, error: action.payload.message,
           request: FETCH_STATUSES.FAILURE
         };
+        case DELETE_NEWS:
+          return {
+            ...state, news: state.news.filter(el => el.id !== action.payload.id)
+          };
       default:
         return state;
     }
