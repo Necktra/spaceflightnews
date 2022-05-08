@@ -13,6 +13,7 @@ const NewsList = ({ newsList, filterNews }) => {
         return (filterNews ? isLike : true) && <li key={el.id} className='news-list__item'><NewsListItem id={el.id} like={isLike} title={el.title} imageUrl={el.imageUrl} text={el.summary} url={el.url} date={transformDate(el.publishedAt)} filterNews={filterNews} /></li>
     }
     )
+
     return (
         <ul className='news-list'>
             {newsListArray}
