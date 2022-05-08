@@ -1,8 +1,8 @@
 import NewsList from '../../news-list/news-list';
 import Button from '../../ui/button/button';
 import './main-page.scss';
-import { useEffect, useState } from 'react';
-// import { useEffect, useCallback, useState } from 'react';
+// import { useEffect, useState } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import { getNewsThunk } from '../../../store/news/actions';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { getNewsList, getNewsLoading } from './../../../store/news/selector';
@@ -20,23 +20,31 @@ const MainPage = () => {
 
     const [offset, setOffset] = useState(0);
 
+
+    // const [firstRender, setFirstRender] = useState(true);
+
     // const getNews = useCallback(() => {
     //     dispatch(getNewsThunk(offset));
     //     setOffset(offset => offset + 10);
     // },[dispatch, offset]);
 
-    //     const getNews = useCallback(() => {
-    //     dispatch(getNewsThunk(offset));
-    //     setOffset(offset => offset + 10);
-    // },[newsLoading]);
-
-    const getNews = () => {
+    const getNews = useCallback(() => {
         dispatch(getNewsThunk(offset));
         setOffset(offset => offset + 10);
-    };
+    }, [dispatch, offset]);
+
+    // const getNews = () => {
+    //     console.log('getNews')
+
+
+    //     dispatch(getNewsThunk(offset));
+    //     setOffset(offset => offset + 10);
+    // };
 
     useEffect(() => {
+        console.log('effect')
         getNews();
+        // eslint-disable-next-line
     }, []);
 
     const filterNewsToggle = () => {
@@ -48,6 +56,7 @@ const MainPage = () => {
 
             <Button filtered={filterNews} onClick={filterNewsToggle}>Filter by like</Button>
             <NewsList newsList={newsList} filterNews={filterNews} />
+            {/* <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={()=>setOffset(offset => offset + 10)} className="main-page__btn">Show more</Button> */}
             <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={getNews} className="main-page__btn">Show more</Button>
         </section>
     )
