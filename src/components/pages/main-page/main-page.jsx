@@ -1,7 +1,8 @@
 import NewsList from '../../news-list/news-list';
 import Button from '../../ui/button/button';
 import './main-page.scss';
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
+// import { useEffect, useCallback, useState } from 'react';
 import { getNewsThunk } from '../../../store/news/actions';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { getNewsList, getNewsLoading } from './../../../store/news/selector';
@@ -19,10 +20,20 @@ const MainPage = () => {
 
     const [offset, setOffset] = useState(0);
 
-    const getNews = useCallback(() => {
+    // const getNews = useCallback(() => {
+    //     dispatch(getNewsThunk(offset));
+    //     setOffset(offset => offset + 10);
+    // },[dispatch, offset]);
+
+    //     const getNews = useCallback(() => {
+    //     dispatch(getNewsThunk(offset));
+    //     setOffset(offset => offset + 10);
+    // },[newsLoading]);
+
+    const getNews = () => {
         dispatch(getNewsThunk(offset));
         setOffset(offset => offset + 10);
-    });
+    };
 
     useEffect(() => {
         getNews();

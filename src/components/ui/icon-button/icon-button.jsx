@@ -1,7 +1,7 @@
 import './icon-button.scss';
 
 const IconButton = ({ children, type, callback }) => {
-
+  console.log('render IconButton');
   let style = '';
   if (type === 'delete') {
     style = ' icon-button_delete';

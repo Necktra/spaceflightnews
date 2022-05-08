@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteNews, likeNews } from '../../store/news/actions';
 import IconButton from '../ui/icon-button/icon-button';
@@ -6,17 +6,24 @@ import Delete from '../ui/icons/delete';
 import Like from '../ui/icons/like';
 import './news-list-item.scss';
 
-const NewsListItem = ({ id, title, imageUrl, text, url, date, filterNews, like }) => {
+const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
 
     const dispatch = useDispatch();
 
-    const deleteCurrentNews = useCallback(() => {
+    const deleteCurrentNews = () => {
         dispatch(deleteNews(id));
-    });
+    };
 
-    const likeCurrentNews = useCallback(() => {
+    const likeCurrentNews = () => {
         dispatch(likeNews(id));
-    });
+    };
+    // const deleteCurrentNews = useCallback(() => {
+    //     dispatch(deleteNews(id));
+    // });
+
+    // const likeCurrentNews = useCallback(() => {
+    //     dispatch(likeNews(id));
+    // });
 
     return (
         <section className="news-list-item">
