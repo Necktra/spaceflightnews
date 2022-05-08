@@ -12,9 +12,10 @@ a {
   text-decoration: none;
   color: inherit;
   display: inline-block;
+
   &:hover {
-      text-decoration: none;
-      color: inherit;
+    text-decoration: none;
+    color: inherit;
   }
 }
 
@@ -26,7 +27,12 @@ p {
 ul,
 li,
 dl {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+//при скрытии полосы прокрутки сайт не "прыгает"
+body {
+  padding: 0 calc(20px - (100vw - 100%)) 0 0;
 }

@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteNews, likeNews } from '../../store/news/actions';
-import { getCurrentNewsLike } from '../../store/news/selector';
 import IconButton from '../ui/icon-button/icon-button';
 import Delete from '../ui/icons/delete';
 import Like from '../ui/icons/like';
@@ -41,7 +40,7 @@ const NewsListItem = ({ id, title, imageUrl, text, url, date, filterNews, like }
             <p className="news-list-item__text">{text}</p>
             <div className="news-list-item__footer-wrapper">
                 <span className="news-list-item__date">{date}</span>
-                <a className="news-list-item__link" target="_blank" href={url}>Read in source</a>
+                <a className="news-list-item__link" rel="noreferrer" target="_blank" href={url}>Read in source</a>
             </div>
         </section>
     )

@@ -1,11 +1,11 @@
 import './button.scss';
 
-const Button = ({ children, ...props }) => {
-    return (
-        <button {...props} type="button" className="button">
-          {children}
-        </button>
-      );
+const Button = ({ children, filtered, ...props }) => {
+  return (
+    <button {...props} type="button" className={`button${filtered ? ' button_filtered' : ''}`}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;

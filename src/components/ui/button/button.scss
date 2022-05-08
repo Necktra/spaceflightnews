@@ -16,12 +16,27 @@
     transition: 0.2s;
     width: max-content;
 
+    &_filtered {
+        background-color: $darkBrandRed;
+        transform: scale(.95);
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, .15);
+    }
+
     &:hover,
     &:active {
         background-color: $darkBrandRed;
     }
 
     &:active {
-        transform: scale(.97);
+        transform: scale(.95);
+    }
+
+    &:disabled {
+        background-color: $darkBrandRed;
+        opacity: 0.6;
+
+        &:active {
+            transform: scale(1);
+        }
     }
 }
