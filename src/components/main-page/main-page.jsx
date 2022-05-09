@@ -10,7 +10,6 @@ import Spinner from '../common/spinner/spinner';
 
 const MainPage = () => {
     const [showOnlyLikedNews, setShowOnlyLikedNews] = useState(false);
-    const [offset, setOffset] = useState(0);
 
     const dispatch = useDispatch();
     const newsList = useSelector(getNewsList, shallowEqual);
@@ -20,9 +19,8 @@ const MainPage = () => {
     const firstRender = !!(newsList.length === 0 && !newsLoadingError);
 
     const getNews = useCallback(() => {
-        dispatch(getNewsThunk(offset));
-        setOffset(offset => offset + 10);
-    }, [dispatch, offset]);
+        dispatch(getNewsThunk());
+    }, [dispatch]);
 
     useEffect(() => {
         getNews();

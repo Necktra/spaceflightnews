@@ -1,11 +1,11 @@
 import styles from './news-list.module.scss';
 import NewsListItem from './../news-list-item/news-list-item';
 import { transformDate } from '../../utils/transformDate';
-import { useSelector, shallowEqual } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getLikedNews } from '../../store/news/selectors';
 
 const NewsList = ({ newsList, showOnlyLikedNews }) => {
-    const likedNews = useSelector(getLikedNews, shallowEqual);
+    const likedNews = useSelector(getLikedNews);
 
     const newsListArray = newsList.map(el => {
         const isLike = likedNews.includes(el.id);

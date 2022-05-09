@@ -7,6 +7,7 @@ import {
   GET_NEWS_SUCCESS,
   DELETE_NEWS,
   LIKE_NEWS,
+  SET_OFFSET,
 } from './actions';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   likedNews: [],
   request: FETCH_STATUSES.IDLE,
   error: null,
+  offset: 0,
 };
 
 function news(state = initialState, action) {
@@ -35,6 +37,11 @@ function news(state = initialState, action) {
         ...state, 
         error: action.payload.message,
         request: FETCH_STATUSES.FAILURE
+      };
+    case SET_OFFSET:
+      return {
+        ...state, 
+        offset: action.payload.offset,
       };
     case LIKE_NEWS:
       const currentNewsLiked = state.likedNews.includes(action.payload.id);

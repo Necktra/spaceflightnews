@@ -9,6 +9,7 @@ export const GET_NEWS_FAILURE = "GISTS::GET_NEWS_FAILURE";
 export const DELETE_NEWS = "GISTS::DELETE_NEWS";
 export const LIKE_NEWS = "GISTS::LIKE_NEWS";
 
+export const SET_OFFSET = "GISTS::SET_OFFSET";
 
 export const getNewsRequest = () => ({
     type: GET_NEWS_REQUEST,
@@ -18,6 +19,13 @@ export const getNewsSuccess = (data) => ({
     type: GET_NEWS_SUCCESS,
     payload: {
         data
+    }
+});
+
+export const setOffset = (offset) => ({
+    type: SET_OFFSET,
+    payload: {
+        offset
     }
 });
 
@@ -40,18 +48,22 @@ export const getNewsFailure = (err) => ({
     payload: err,
 });
 
-export const getNewsThunk = (offset = 0) => async (dispatch, getState) => {
+export const getNewsThunk = () => async (dispatch, getState) => {
     dispatch(getNewsRequest());
 
     try {
+        const offset = getState().news.offset;
         const response = await fetch(`${BASE_NEWS_API_URL}articles?_limit=10&_start=${offset}`);
 
         if (!response.ok) {
             throw new Error(`Request failed with status ${response.status}`);
         }
+
         const result = await response.json();
 
         dispatch(getNewsSuccess(result));
+        dispatch(setOffset(offset + 10));
+
     } catch (err) {
         dispatch(getNewsFailure(err));
         console.warn(err.message);
