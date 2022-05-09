@@ -1,8 +1,17 @@
+@import '../../../style/variables.scss';
+
 .mainPage {
    display: flex;
    flex-direction: column;
    row-gap: 30px;
-   align-items:center;
-   padding-top: 30px;
+   align-items: center;
    padding-bottom: 30px;
+}
+
+.title {
+   color: $brandRed;
+   font-size: 56px;
+   font-weight: 700;
+   letter-spacing: -.04em;
+   align-self: flex-start;
 }
