@@ -1,0 +1,100 @@
+@import '../../style/variables.scss';
+
+.newsListItem {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .25);
+    display: flex;
+    flex-direction: column;
+    max-width: 564px;
+    box-sizing: border-box;
+    position: relative;
+    text-align: left;
+    padding-bottom: 20px;
+
+    &:hover .title {
+        color: $brandRed;
+    }
+
+    &:hover .img {
+        transform: scale(1.05);
+    }
+    
+}
+
+.imgWrapper {
+    width: 100%;
+    height: 376px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footerWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.img {
+    object-fit: cover;
+    transition: .3s;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 7px;
+    color: #000;
+    transition: .3s;
+    height: 64px;
+    padding-right: 15px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 20px;
+    height: 100px;
+    text-align: justify;
+    padding-right: 15px;
+    -webkit-line-clamp: 5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.date {
+    font-size: 14px;
+    line-height: 20px;
+    color: $secondary;
+}
+
+.link {
+    color: $brandRed;
+    font-size: 14px;
+    line-height: 20px;
+
+    &::after {
+        content: "";
+        display: inline-block;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        margin-left: 6px;
+    }
+
+    &:hover {
+        color: $darkBrandRed;
+
+        &::after {
+            border-left: 5px solid $darkBrandRed;
+        }
+    }
+}

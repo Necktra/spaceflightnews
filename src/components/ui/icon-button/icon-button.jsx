@@ -1,16 +1,17 @@
-import './icon-button.scss';
+import styles from './icon-button.module.scss';
 
 const IconButton = ({ children, type, callback }) => {
 
-  let style = '';
+  let additionalStyle = '';
+
   if (type === 'delete') {
-    style = ' icon-button_delete';
+    additionalStyle = styles.deleteButton;
   } else if (type === 'like') {
-    style = ' icon-button_like';
+    additionalStyle = styles.likeButton;
   }
 
   return (
-    <button type="button" onClick={callback} className={`icon-button${style}`}>
+    <button type="button" onClick={callback} className={`${styles.iconButton} ${additionalStyle}`}>
       {children}
     </button>
   );

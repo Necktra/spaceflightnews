@@ -1,6 +1,6 @@
 @import '../../../style/variables.scss';
 
-.icon-button {
+.iconButton {
     backdrop-filter: blur(40px);
     background-color: hsla(0, 0%, 100%, .5);
     border-radius: 59px;
@@ -16,12 +16,12 @@
     }
 }
 
-.icon-button_delete {
+.deleteButton {
     top: 315px;
     right: 20px;
 }
 
-.icon-button_like {
+.likeButton {
     top: 315px;
     left: 20px;
 }

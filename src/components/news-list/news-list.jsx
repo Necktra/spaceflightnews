@@ -1,4 +1,4 @@
-import './news-list.scss';
+import styles from './news-list.module.scss';
 import NewsListItem from './../news-list-item/news-list-item';
 import { transformDate } from '../../services/transformDate';
 import { useSelector, shallowEqual } from 'react-redux';
@@ -10,12 +10,12 @@ const NewsList = ({ newsList, filterNews }) => {
 
     const newsListArray = newsList.map(el => {
         const isLike = likedNews.includes(el.id);
-        return (filterNews ? isLike : true) && <li key={el.id} className='news-list__item'><NewsListItem id={el.id} like={isLike} title={el.title} imageUrl={el.imageUrl} text={el.summary} url={el.url} date={transformDate(el.publishedAt)} filterNews={filterNews} /></li>
+        return (filterNews ? isLike : true) && <li key={el.id} ><NewsListItem id={el.id} like={isLike} title={el.title} imageUrl={el.imageUrl} text={el.summary} url={el.url} date={transformDate(el.publishedAt)} filterNews={filterNews} /></li>
     }
     )
 
     return (
-        <ul className='news-list'>
+        <ul className={styles.newsList}>
             {newsListArray}
         </ul>
     )

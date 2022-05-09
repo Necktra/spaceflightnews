@@ -16,12 +16,6 @@
     transition: 0.2s;
     width: max-content;
 
-    &_filtered {
-        background-color: $darkBrandRed;
-        transform: scale(.95);
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, .15);
-    }
-
     &:hover,
     &:active {
         background-color: $darkBrandRed;
@@ -39,4 +33,10 @@
             transform: scale(1);
         }
     }
+}
+
+.filtered {
+    background-color: $darkBrandRed;
+    transform: scale(.95);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .15);
 }

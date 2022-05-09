@@ -1,17 +1,18 @@
- import './page-wrapper.scss';
+import styles from './page-wrapper.module.scss';
 
 import MainPage from "../../pages/main-page/main-page";
 
 const PageWrapper = () => {
-    return (
-      <>
+
+  return (
+    <>
       {/* <Header /> */}
-      <main className="page-wrapper__main">
+      <main className={styles.pageWrapper}>
         <MainPage />
       </main>
       {/* <Footer /> */}
     </>
-      );
+  );
 }
 
 export default PageWrapper;

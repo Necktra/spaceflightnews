@@ -1,6 +1,6 @@
 import NewsList from '../../news-list/news-list';
 import Button from '../../ui/button/button';
-import './main-page.scss';
+import styles from  './main-page.module.scss';
 import { useEffect, useCallback, useState } from 'react';
 import { getNewsThunk } from '../../../store/news/actions';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
@@ -33,7 +33,7 @@ const MainPage = () => {
     }
 
     return (
-        <section className="main-page">
+        <section className={styles.mainPage}>
             <Button filtered={filterNews} onClick={filterNewsToggle}>Filter by like</Button>
             <NewsList newsList={newsList} filterNews={filterNews} />
             {(newsLoading === FETCH_STATUSES.REQUEST) && <Spinner />}

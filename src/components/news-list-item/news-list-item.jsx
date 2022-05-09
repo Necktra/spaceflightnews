@@ -1,10 +1,10 @@
+import styles from './news-list-item.module.scss';
 import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteNews, likeNews } from '../../store/news/actions';
 import IconButton from '../ui/icon-button/icon-button';
 import Delete from '../ui/icons/delete';
 import Like from '../ui/icons/like';
-import './news-list-item.scss';
 
 const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
 
@@ -26,10 +26,10 @@ const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
     // },[id]);
 
     return (
-        <section className="news-list-item">
+        <section className={styles.newsListItem}>
 
-            <div className="news-list-item__img-wrapper">
-                <img src={imageUrl} alt={title} className="news-list-item__img" max-width="564" height="376" />
+            <div className={styles.imgWrapper}>
+                <img src={imageUrl} alt={title} className={styles.img} max-width="564" height="376" />
             </div>
 
             <IconButton type='like' callback={likeCurrentNews}>
@@ -41,12 +41,12 @@ const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
             </IconButton >
 
             <header>
-                <h4 className="news-list-item__title">{title}</h4>
+                <h4 className={styles.title}>{title}</h4>
             </header>
-            <p className="news-list-item__text">{text}</p>
-            <div className="news-list-item__footer-wrapper">
-                <span className="news-list-item__date">{date}</span>
-                <a className="news-list-item__link" rel="noreferrer" target="_blank" href={url}>Read in source</a>
+            <p className={styles.text}>{text}</p>
+            <div className={styles.footerWrapper}>
+                <span className={styles.date}>{date}</span>
+                <a className={styles.link} rel="noreferrer" target="_blank" href={url}>Read in source</a>
             </div>
         </section>
     )
