@@ -1,10 +1,9 @@
 import styles from './page-wrapper.module.scss';
 
-import MainPage from "../../pages/main-page/main-page";
+import MainPage from "../main-page/main-page";
 import Footer from '../footer/footer';
 
 const PageWrapper = () => {
-
   return (
     <>
       {/* <Header /> */}

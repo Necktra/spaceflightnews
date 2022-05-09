@@ -1,32 +1,24 @@
 import styles from './news-list-item.module.scss';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteNews, likeNews } from '../../store/news/actions';
-import IconButton from '../ui/icon-button/icon-button';
-import Delete from '../ui/icons/delete';
-import Like from '../ui/icons/like';
+import IconButton from '../common/icon-button/icon-button';
+import Delete from '../common/icons/delete';
+import Like from '../common/icons/like';
 
 const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
-
     const dispatch = useDispatch();
 
-    const deleteCurrentNews = () => {
+    const deleteCurrentNews = useCallback(() => {
         dispatch(deleteNews(id));
-    };
+    },[id, dispatch]);
 
-    const likeCurrentNews = () => {
+    const likeCurrentNews = useCallback(() => {
         dispatch(likeNews(id));
-    };
-    // const deleteCurrentNews = useCallback(() => {
-    //     dispatch(deleteNews(id));
-    // },[id]);
-
-    // const likeCurrentNews = useCallback(() => {
-    //     dispatch(likeNews(id));
-    // },[id]);
+    },[id, dispatch]);
 
     return (
-        <section className={styles.newsListItem}>
+        <article className={styles.newsListItem}>
 
             <div className={styles.imgWrapper}>
                 <img src={imageUrl} alt={title} className={styles.img} max-width="564" height="376" />
@@ -48,7 +40,7 @@ const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
                 <span className={styles.date}>{date}</span>
                 <a className={styles.link} rel="noreferrer" target="_blank" href={url}>Read in source</a>
             </div>
-        </section>
+        </article>
     )
 }
 

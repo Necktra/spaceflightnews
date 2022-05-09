@@ -1,6 +1,6 @@
 import {
     BASE_NEWS_API_URL
-} from "../../utils/constants";
+} from "../../constants/constants";
 
 export const GET_NEWS_REQUEST = "GISTS::GET_NEWS_REQUEST";
 export const GET_NEWS_SUCCESS = "GISTS::GET_NEWS_SUCCESS";
@@ -41,7 +41,6 @@ export const getNewsFailure = (err) => ({
 });
 
 export const getNewsThunk = (offset = 0) => async (dispatch, getState) => {
-
     dispatch(getNewsRequest());
 
     try {

@@ -1,7 +1,6 @@
 import styles from './icon-button.module.scss';
 
 const IconButton = ({ children, type, callback }) => {
-
   let additionalStyle = '';
 
   if (type === 'delete') {

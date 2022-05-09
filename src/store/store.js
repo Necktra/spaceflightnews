@@ -5,7 +5,7 @@ import {
     createStore
 } from 'redux';
 import thunk from 'redux-thunk';
-import news from './news/news';
+import news from './news/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
