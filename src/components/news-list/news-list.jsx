@@ -16,7 +16,7 @@ const NewsList = ({ newsList, filterNews }) => {
 
     return (
         <ul className={styles.newsList}>
-            {newsListArray}
+            {filterNews && (likedNews.length === 0) ? <span>There is nothing in favorites</span> : newsListArray}
         </ul>
     )
 }

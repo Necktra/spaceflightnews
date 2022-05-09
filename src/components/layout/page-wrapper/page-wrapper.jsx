@@ -1,6 +1,7 @@
 import styles from './page-wrapper.module.scss';
 
 import MainPage from "../../pages/main-page/main-page";
+import Footer from '../footer/footer';
 
 const PageWrapper = () => {
 
@@ -10,7 +11,7 @@ const PageWrapper = () => {
       <main className={styles.pageWrapper}>
         <MainPage />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

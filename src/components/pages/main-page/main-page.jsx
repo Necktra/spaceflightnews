@@ -38,7 +38,7 @@ const MainPage = () => {
             <NewsList newsList={newsList} filterNews={filterNews} />
             {(newsLoading === FETCH_STATUSES.REQUEST) && <Spinner />}
             {newsLoadingError && <span>Error. Try again later</span>}
-            <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={getNews} className="main-page__btn">Show more</Button>
+            <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={getNews}>Show more</Button>
         </section>
     )
 }
