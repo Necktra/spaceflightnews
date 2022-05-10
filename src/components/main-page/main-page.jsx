@@ -16,7 +16,7 @@ const MainPage = () => {
     const newsLoading = useSelector(getNewsLoading, shallowEqual);
     const newsLoadingError = useSelector(getNewsError, shallowEqual);
 
-    const wasFetched = !!(newsList.length === 0 && !newsLoadingError);
+    const firstRender = (newsList.length === 0 && !newsLoadingError);
 
     const getNews = useCallback(() => {
         dispatch(getNewsThunk());
@@ -36,11 +36,11 @@ const MainPage = () => {
             <h1 className={styles.title}>Spaceflight News:</h1>
             <h2 className={styles.visuallyHidden}>Spaceflight news list</h2>
 
-            {!wasFetched && !newsLoadingError && <Button showOnlyLikedNews={showOnlyLikedNews} onClick={filterNewsToggle}>Filter by like</Button>}
+            {!firstRender && !newsLoadingError && <Button showOnlyLikedNews={showOnlyLikedNews} onClick={filterNewsToggle}>Filter by like</Button>}
             <NewsList newsList={newsList} showOnlyLikedNews={showOnlyLikedNews} />
             {(newsLoading === FETCH_STATUSES.REQUEST) && <Spinner />}
             {newsLoadingError && <span>Error. Try again later</span>}
-            {!wasFetched && <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={getNews}>{newsLoadingError ? 'Try again' : 'Show more'}</Button>}
+            {!firstRender && !showOnlyLikedNews && <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={getNews}>{newsLoadingError ? 'Try again' : 'Show more'}</Button>}
         </section>
     )
 }
