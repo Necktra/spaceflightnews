@@ -8,9 +8,11 @@ const NewsList = ({ newsList, showOnlyLikedNews }) => {
     }
     )
 
+    const showNothingInFavorites = newsListArray.every(el => el === false) && showOnlyLikedNews;
+
     return (
         <ul className={styles.newsList}>
-            {showOnlyLikedNews && (newsList.length === 0) ? <span>There is nothing in favorites</span> : newsListArray}
+            {showNothingInFavorites ? <span>There is nothing in favorites</span> : newsListArray}
         </ul>
     )
 }
