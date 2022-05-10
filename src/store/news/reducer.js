@@ -12,7 +12,6 @@ import {
 
 const initialState = {
   news: [],
-  likedNews: [],
   request: FETCH_STATUSES.IDLE,
   error: null,
   offset: 0,
@@ -44,16 +43,21 @@ function news(state = initialState, action) {
         offset: action.payload.offset,
       };
     case LIKE_NEWS:
-      const currentNewsLiked = state.likedNews.includes(action.payload.id);
+      const newNews = state.news.map(el => {
+        if(el.id !== action.payload.id) {
+          return el
+        } else {
+          return {...el, like: !el.like}
+        }
+      })
       return {
         ...state, 
-        likedNews: currentNewsLiked ? state.likedNews.filter(el => el !== action.payload.id) : [...state.likedNews, action.payload.id]
+        news: newNews
       };
     case DELETE_NEWS:
       return {
         ...state, 
         news: state.news.filter(el => el.id !== action.payload.id), 
-        likedNews: state.likedNews.filter(el => el !== action.payload.id)
       };
     default:
       return state;

@@ -61,6 +61,8 @@ export const getNewsThunk = () => async (dispatch, getState) => {
 
         const result = await response.json();
 
+        result.map(el => el.like = false);
+
         dispatch(getNewsSuccess(result));
         dispatch(setOffset(offset + 10));
 
