@@ -1,0 +1,11 @@
+@import '../../../../style/variables.scss';
+
+.logo {
+    width: 70px;
+    height: 70px;
+    fill: $brandRed;
+    transition: 0.2s;
+    &:hover {
+        fill: black;
+    }
+}

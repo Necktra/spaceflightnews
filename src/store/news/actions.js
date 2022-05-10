@@ -7,7 +7,8 @@ export const GET_NEWS_SUCCESS = "GISTS::GET_NEWS_SUCCESS";
 export const GET_NEWS_FAILURE = "GISTS::GET_NEWS_FAILURE";
 
 export const DELETE_NEWS = "GISTS::DELETE_NEWS";
-export const LIKE_NEWS = "GISTS::LIKE_NEWS";
+
+export const SET_NEW_NEWS_VALUE = "GISTS::SET_NEW_NEWS_VALUE";
 
 export const SET_OFFSET = "GISTS::SET_OFFSET";
 
@@ -36,10 +37,10 @@ export const deleteNews = (id) => ({
     }
 });
 
-export const likeNews = (id) => ({
-    type: LIKE_NEWS,
+export const setNewNewsValue = (news) => ({
+    type: SET_NEW_NEWS_VALUE,
     payload: {
-        id
+        news
     }
 });
 
@@ -70,4 +71,18 @@ export const getNewsThunk = () => async (dispatch, getState) => {
         dispatch(getNewsFailure(err));
         console.warn(err.message);
     }
+};
+
+export const setNewValue = (id, field, newValue) => async (dispatch, getState) => {
+    const state = getState();
+    let newNewsState = [...state.news.news];
+    
+    const newsIndex = newNewsState.indexOf(newNewsState.find(el => el.id === id));
+    const currentNewsItem = newNewsState[newsIndex];
+    const newNewsItem = {
+        ...currentNewsItem,
+        [field]: newValue
+    };
+    newNewsState[newsIndex] = newNewsItem;
+    dispatch(setNewNewsValue(newNewsState));
 };

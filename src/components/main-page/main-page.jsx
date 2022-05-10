@@ -16,7 +16,7 @@ const MainPage = () => {
     const newsLoading = useSelector(getNewsLoading, shallowEqual);
     const newsLoadingError = useSelector(getNewsError, shallowEqual);
 
-    const firstRender = !!(newsList.length === 0 && !newsLoadingError);
+    const wasFetched = !!(newsList.length === 0 && !newsLoadingError);
 
     const getNews = useCallback(() => {
         dispatch(getNewsThunk());
@@ -27,20 +27,20 @@ const MainPage = () => {
         // eslint-disable-next-line
     }, []);
 
-    const filterNewsToggle = () => {
-        setShowOnlyLikedNews(!showOnlyLikedNews)
-    }
+    const filterNewsToggle = useCallback(() => {
+        setShowOnlyLikedNews(currentState => !currentState)
+    }, [])
 
     return (
         <section className={styles.mainPage}>
-
             <h1 className={styles.title}>Spaceflight News:</h1>
+            <h2 className={styles.visuallyHidden}>Spaceflight news list</h2>
 
-            {!firstRender && <Button showOnlyLikedNews={showOnlyLikedNews} onClick={filterNewsToggle}>Filter by like</Button>}
+            {!wasFetched && !newsLoadingError && <Button showOnlyLikedNews={showOnlyLikedNews} onClick={filterNewsToggle}>Filter by like</Button>}
             <NewsList newsList={newsList} showOnlyLikedNews={showOnlyLikedNews} />
             {(newsLoading === FETCH_STATUSES.REQUEST) && <Spinner />}
             {newsLoadingError && <span>Error. Try again later</span>}
-            {!firstRender && <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={getNews}>Show more</Button>}
+            {!wasFetched && <Button disabled={newsLoading === FETCH_STATUSES.REQUEST} onClick={getNews}>{newsLoadingError ? 'Try again' : 'Show more'}</Button>}
         </section>
     )
 }

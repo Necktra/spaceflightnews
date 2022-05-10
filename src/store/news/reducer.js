@@ -6,7 +6,7 @@ import {
   GET_NEWS_REQUEST,
   GET_NEWS_SUCCESS,
   DELETE_NEWS,
-  LIKE_NEWS,
+  SET_NEW_NEWS_VALUE,
   SET_OFFSET,
 } from './actions';
 
@@ -42,17 +42,10 @@ function news(state = initialState, action) {
         ...state, 
         offset: action.payload.offset,
       };
-    case LIKE_NEWS:
-      const newNews = state.news.map(el => {
-        if(el.id !== action.payload.id) {
-          return el
-        } else {
-          return {...el, like: !el.like}
-        }
-      })
+    case SET_NEW_NEWS_VALUE:
       return {
         ...state, 
-        news: newNews
+        news: action.payload.news
       };
     case DELETE_NEWS:
       return {

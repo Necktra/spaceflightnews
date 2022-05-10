@@ -1,7 +1,7 @@
 import styles from './news-list-item.module.scss';
 import { memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteNews, likeNews } from '../../store/news/actions';
+import { deleteNews, setNewValue } from '../../store/news/actions';
 import IconButton from '../common/icon-button/icon-button';
 import Delete from '../common/icons/delete';
 import Like from '../common/icons/like';
@@ -14,8 +14,8 @@ const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
     },[id, dispatch]);
 
     const likeCurrentNews = useCallback(() => {
-        dispatch(likeNews(id));
-    },[id, dispatch]);
+        dispatch(setNewValue(id, 'like', !like));
+    },[id, like, dispatch]);
 
     return (
         <article className={styles.newsListItem}>
@@ -33,7 +33,7 @@ const NewsListItem = ({ id, title, imageUrl, text, url, date, like }) => {
             </IconButton >
 
             <header>
-                <h4 className={styles.title}>{title}</h4>
+                <h3 className={styles.title}>{title}</h3>
             </header>
             <p className={styles.text}>{text}</p>
             <div className={styles.footerWrapper}>

@@ -15,3 +15,13 @@
    letter-spacing: -.04em;
    align-self: flex-start;
 }
+
+.visuallyHidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   padding: 0;
+   overflow: hidden;
+   clip-path: inset(100%);
+}
