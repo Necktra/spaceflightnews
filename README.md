@@ -7,9 +7,9 @@
   <img src="https://img.shields.io/badge/react--redux-8.0.1-brightgreen">
   <img src="https://img.shields.io/badge/redux--thunk-2.4.1-brightgreen">
   <img src="https://img.shields.io/badge/sass-1.51.0-brightgreen">
-  
 </p>
 
+https://necktra.github.io/spaceflightnews/ provides you the latest news about space exploration and spaceflight.
 This SPA get data from <a  href="https://spaceflightnewsapi.net/">Spaceflight News API</a>. 
 
 ## Project setup
