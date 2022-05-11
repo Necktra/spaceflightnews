@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/spaceflightnews/static/css/main.78bfc214.css",
-    "main.js": "/spaceflightnews/static/js/main.4948ca7c.js",
+    "main.js": "/spaceflightnews/static/js/main.c9147081.js",
     "index.html": "/spaceflightnews/index.html",
     "main.78bfc214.css.map": "/spaceflightnews/static/css/main.78bfc214.css.map",
-    "main.4948ca7c.js.map": "/spaceflightnews/static/js/main.4948ca7c.js.map"
+    "main.c9147081.js.map": "/spaceflightnews/static/js/main.c9147081.js.map"
   },
   "entrypoints": [
     "static/css/main.78bfc214.css",
-    "static/js/main.4948ca7c.js"
+    "static/js/main.c9147081.js"
   ]
 }
