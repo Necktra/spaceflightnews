@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/sass-1.51.0-brightgreen">
 </p>
 
-https://necktra.github.io/spaceflightnews/ provides you the latest news about space exploration and spaceflight.
+<p> Spaceflight News provides you the latest news about space exploration and spaceflight.</p>
 This SPA get data from <a  href="https://spaceflightnewsapi.net/">Spaceflight News API</a>. 
 
 ## Project setup
