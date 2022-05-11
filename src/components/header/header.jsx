@@ -4,7 +4,7 @@ import Logo from '../common/icons/logo/logo';
 function Header() {
   return (
     <header className={styles.header}>
-      <a href="/">
+      <a href="/spaceflightnews">
         <Logo />
       </a>
     </header>
